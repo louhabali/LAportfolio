@@ -619,3 +619,76 @@ button { color: inherit; }
   .about-reel { font-size: 6px; }
   .about-strip .about-links a { min-width: 0; flex: 1; padding: 9px; font-size: 9px; }
 }
+
+/* Final mobile pass: keep the film artwork compact and overlays centered. */
+@media (max-width: 640px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .hero { min-height: 700px; padding: 112px 18px 104px; }
+  .hero h1 { font-size: clamp(30px, 9vw, 44px); }
+  .hero h2 { font-size: 17px; }
+  .hero-description { font-size: 11px; }
+  .hero-cinema-art { top: 5%; right: -18%; width: 90vw; height: 43%; opacity: .46; }
+  .cinema-caption { right: 21%; top: 9%; font-size: 6px; }
+  .cinema-index { right: 23%; bottom: 0; font-size: 38px; }
+
+  .catalog-shell { padding-inline: 16px; }
+  .section-heading h2 { font-size: 16px; }
+  .project-rail { scroll-padding-inline: 16px; }
+  .project-rail > div:has(.featured-card), .project-rail > div { width: min(88vw, 360px); }
+  .featured-card { min-height: 0; }
+  .featured-card .card-art { height: 176px; }
+  .project-schematic { right: 9px; top: 10px; width: min(64%, 230px); padding: 8px; }
+  .schematic-flow > span { font-size: 6px; }
+  .card-title-row h3 { font-size: 15px; }
+  .card-copy p { font-size: 10px; }
+
+  .site-footer { padding-inline: 16px; }
+  .footer-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .footer-contact-links { min-width: 0; width: 100%; align-items: flex-start; }
+  .contact-link { max-width: 100%; min-width: 0; gap: 5px; font-size: 10px; }
+  .contact-link:first-child { overflow-wrap: anywhere; word-break: break-word; }
+  .footer-bottom { flex-wrap: wrap; justify-content: space-between; row-gap: 12px; padding-top: 11px; }
+  .footer-bottom > span { max-width: 70%; line-height: 1.5; }
+
+  .modal-backdrop, .career-modal-backdrop { align-items: center; justify-content: center; padding: 12px; overflow-y: auto; }
+  .project-modal { width: min(620px, calc(100vw - 24px)); height: min(780px, calc(100dvh - 24px)); max-height: calc(100dvh - 24px); border-radius: 13px; border-bottom: 1px solid #ffffff25; }
+  .modal-banner { min-height: 0; padding: 20px 18px 15px; }
+  .modal-banner h2 { margin-top: 9px; font-size: clamp(27px, 8vw, 36px); }
+  .modal-banner p { font-size: 10px; }
+  .modal-poster-copy { padding-bottom: 12px; }
+  .modal-poster-footer { padding-top: 7px; }
+  .modal-body { padding: 14px 16px 18px; }
+  .modal-description { font-size: 10px; }
+  .modal-tabs { gap: 15px; margin: 14px 0; }
+  .modal-tabs button { font-size: 10px; }
+  .modal-links { gap: 7px; }
+  .modal-links .button { min-height: 36px; font-size: 9px; }
+
+  .career-modal { width: min(580px, calc(100vw - 24px)); height: min(760px, calc(100dvh - 24px)); max-height: calc(100dvh - 24px); grid-template-rows: 190px minmax(0, 1fr); border-radius: 13px; border-bottom: 1px solid #ffffff28; }
+  .career-modal-image { height: auto; }
+  .career-modal-body { padding: 16px 16px 20px; }
+  .career-modal-body h2 { font-size: clamp(23px, 7vw, 30px); }
+  .career-modal-body > p { font-size: 10px; line-height: 1.6; }
+  .career-skill-list { gap: 6px; }
+  .career-skill-list span { padding: 6px 8px; font-size: 8px; }
+
+  .chapter-grid, .career-grid { min-width: 0; }
+  .chapter-card, .certificate-card { grid-template-columns: 88px minmax(0, 1fr); gap: 10px; }
+  .chapter-poster, .certificate-art { width: 88px; height: 88px; }
+  .chapter-copy strong, .certificate-copy strong { font-size: 11px; }
+  .certificate-copy small { font-size: 8px; }
+}
+
+@media (max-width: 380px) {
+  .site-nav { padding-inline: 12px; gap: 8px; }
+  .brand { font-size: 17px; }
+  .terminal-trigger { padding-inline: 7px; font-size: 8px; }
+  .menu-trigger { padding: 5px; }
+  .hero-actions .button { gap: 5px; font-size: 9px; }
+  .hero-meta { gap: 7px; font-size: 9px; }
+  .hero-stack span { font-size: 7px; }
+  .career-modal-kicker { max-width: 56%; font-size: 5px; }
+  .career-modal-index { right: 53px; }
+  .chapter-card, .certificate-card { grid-template-columns: 76px minmax(0, 1fr); gap: 8px; padding: 7px; }
+  .chapter-poster, .certificate-art { width: 76px; height: 76px; }
+}
