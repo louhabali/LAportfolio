@@ -1,13 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { GithubMark } from "@/components/GithubMark";
 
 function ProjectCard({ project, featured, onInspect }: { project: Project; featured: boolean; onInspect: (project: Project) => void }) {
   return <article className={`project-card ${featured ? "featured-card" : ""} card-${project.theme}`}>
-    <button className="card-open" onClick={() => onInspect(project)} aria-label={`Inspect ${project.name}`}>
+    <button className="card-open" onClick={() => onInspect(project)} aria-label={`Play ${project.name} film`}>
       <div className="card-art" onPointerMove={(event) => {
         const bounds = event.currentTarget.getBoundingClientRect();
         event.currentTarget.style.setProperty("--spot-x", `${event.clientX - bounds.left}px`);
@@ -15,15 +15,15 @@ function ProjectCard({ project, featured, onInspect }: { project: Project; featu
       }}>
         {featured && <span className="rank-number">{String(project.rank).padStart(2, "0")}</span>}
         <div className="art-orbit orbit-one" /><div className="art-orbit orbit-two" />
-        {featured && <div className="project-schematic" aria-hidden="true"><div className="schematic-label">SYSTEM FLOW <span>● LIVE</span></div><div className="schematic-flow"><span>CLIENT</span><i /><span className="schematic-core">{project.stack[1]?.toUpperCase() ?? "API"}</span><i /><span>DATA</span></div><div className="schematic-stack">{project.stack.slice(0, 3).join(" · ")}</div></div>}
+        <div className="project-schematic" aria-hidden="true"><div className="schematic-label"><span>THE TECHNICAL CUT</span><i>{project.stack.length} ELEMENTS</i></div><div className="schematic-film-title">{project.name}</div><div className="schematic-flow"><span>APP</span><i /><span className="schematic-core">{project.stack[0]?.toUpperCase() ?? "CODE"}</span><i /><span>DATA</span></div><div className="schematic-stack">{project.stack.slice(0, 4).join(" · ")}{project.stack.length > 4 ? ` · +${project.stack.length - 4}` : ""}</div></div>
         <span className="art-code">{project.slug.toUpperCase()}<br /><i>ONLINE · {project.year}</i></span>
-        <span className="art-open"><ArrowUpRight size={18} /></span>
+        <span className="art-open"><Play size={14} fill="currentColor" /></span>
       </div>
       <div className="card-copy"><div className="card-title-row"><h3>{project.name}</h3><span className="match">{project.match}</span></div>
-        <p>{project.tagline}</p><div className="card-tech">{project.stack.slice(0, featured ? 5 : 4).map((tech) => <span key={tech}>{tech}</span>)}</div>
+        <p>{project.tagline}</p><div className="card-tech">{project.stack.slice(0, 3).map((tech) => <span key={tech}>{tech}</span>)}{project.stack.length > 3 && <span className="stack-remainder">+{project.stack.length - 3} more</span>}</div>
       </div>
     </button>
-    <div className="card-footer"><span>{project.environment}</span>{project.github ? <a href={project.github} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} on GitHub`}><GithubMark size={15} /> Source</a> : <span className="source-unavailable">Source unavailable</span>}</div>
+    <div className="card-footer"><span>{featured ? "FEATURED FILM" : "FROM THE COLLECTION"}</span>{project.github ? <a href={project.github} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} source on GitHub`}><GithubMark size={15} /> View source <ArrowUpRight size={12} /></a> : <span className="source-unavailable">Details</span>}</div>
   </article>;
 }
 

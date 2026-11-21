@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { Command } from "lucide-react";
+import { ArrowUpRight, Command } from "lucide-react";
 import { GithubMark } from "@/components/GithubMark";
 import { Navbar } from "@/components/Navbar";
 import { HeroBillboard } from "@/components/HeroBillboard";
@@ -33,15 +33,21 @@ export function PortfolioExperience() {
     <main>
       <HeroBillboard onInspect={inspect} />
       <div className="catalog-shell">
-        <div id="flagships"><ProjectRow title="Top 3 flagship systems" subtitle="FEATURED WORK · 01—03" projects={flagships} featured onInspect={inspect} /></div>
-        <div id="systems"><ProjectRow title="Core & full-stack systems" subtitle="MORE FROM THE CATALOG" projects={coreProjects} onInspect={inspect} /></div>
-        <section className="about-strip" aria-labelledby="about-title"><div className="portrait-frame"><Image src="/ali-louhab.png" alt="Portrait of Ali Louhab" width={76} height={92} sizes="76px" /></div><div className="about-copy"><div className="eyebrow">BUILDING IN PUBLIC, LEARNING IN DEPTH</div><h2 id="about-title">Ali Louhab</h2><p>Software developer focused on full-stack applications, backend systems, and deployment workflows. I like understanding a system from its user experience down to the infrastructure that keeps it running.</p><div className="about-links"><a href="mailto:louhabali@gmail.com">louhabali@gmail.com</a><a href="https://www.linkedin.com/in/louhabali/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="https://github.com/louhabali" target="_blank" rel="noreferrer"><GithubMark size={15} /> GitHub <span>↗</span></a></div></div></section>
+        <div id="flagships"><ProjectRow title="Featured films" subtitle="THE ORIGINALS · 01—03" projects={flagships} featured onInspect={inspect} /></div>
+        <div id="systems"><ProjectRow title="The project collection" subtitle="MORE STORIES FROM THE STUDIO" projects={coreProjects} onInspect={inspect} /></div>
+        <section className="about-strip" aria-labelledby="about-title">
+          <div className="portrait-stage"><div className="portrait-frame"><Image src="/ali-louhab.png" alt="Portrait of Ali Louhab" width={220} height={270} sizes="(max-width: 640px) 124px, 220px" /><span className="portrait-light" /><span className="portrait-index">AL / 01</span></div><span className="portrait-caption">THE PERSON BEHIND THE PROJECTS</span></div>
+          <div className="about-copy"><div className="eyebrow">A PERSONAL CUT · SOFTWARE DEVELOPER</div><h2 id="about-title">Ali Louhab<span className="about-title-period">.</span></h2><div className="about-role">FULL-STACK · BACKEND · SYSTEMS</div><p>Curious by nature, I build digital products from the interface down to the infrastructure. I enjoy untangling complex problems, learning in public, and making software that feels thoughtful to use.</p>
+            <div className="about-reel"><span>ORIGIN</span><i /> <span>GUERCIF, MOROCCO</span><i /> <span>NOW</span><i /> <span>OUJDA</span></div>
+            <div className="about-links"><a href="mailto:louhabali@gmail.com">Contact Ali <span>louhabali@gmail.com</span><ArrowUpRight size={14} /></a><a href="https://github.com/louhabali" target="_blank" rel="noreferrer"><GithubMark size={15} /> GitHub <span>VIEW THE WORK</span><ArrowUpRight size={14} /></a></div>
+          </div>
+        </section>
         <CareerSection />
         <TechMatrix />
       </div>
     </main>
     <Footer />
-    <button className="floating-cli" onClick={() => setTerminalOpen(true)} aria-label="Open portfolio terminal"><Command size={18} /><span>Try CLI</span></button>
+    <button className="floating-cli" onClick={() => setTerminalOpen(true)} aria-label="Open portfolio console"><Command size={18} /><span>Console</span></button>
     <ProjectModal project={selected} onClose={closeProject} />
     <TerminalModal open={terminalOpen} onClose={closeTerminal} onInspect={inspect} />
   </>;

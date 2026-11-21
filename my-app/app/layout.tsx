@@ -13,8 +13,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ali Louhab — ALILO Portfolio",
-  description: "Selected software projects by Ali Louhab: full-stack applications, distributed systems, and developer tools.",
+  title: "Ali Louhab — A Life in Code",
+  description: "A cinematic portfolio by Ali Louhab: education, certificates, and software projects presented as chapters in a life-long series.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
