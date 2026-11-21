@@ -623,7 +623,7 @@ button { color: inherit; }
 /* Final mobile pass: keep the film artwork compact and overlays centered. */
 @media (max-width: 640px) {
   html, body { max-width: 100%; overflow-x: clip; }
-  .hero { min-height: 700px; padding: 112px 18px 104px; }
+  .hero { min-height: 700px; align-items: flex-start; padding: 104px 18px 104px; }
   .hero h1 { font-size: clamp(30px, 9vw, 44px); }
   .hero h2 { font-size: 17px; }
   .hero-description { font-size: 11px; }
@@ -645,8 +645,10 @@ button { color: inherit; }
   .site-footer { padding-inline: 16px; }
   .footer-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .footer-contact-links { min-width: 0; width: 100%; align-items: flex-start; }
-  .contact-link { max-width: 100%; min-width: 0; gap: 5px; font-size: 10px; }
+  .contact-link { display: grid; grid-template-columns: minmax(0, 1fr) auto; width: 100%; max-width: 100%; min-width: 0; gap: 5px; font-size: 10px; }
   .contact-link:first-child { overflow-wrap: anywhere; word-break: break-word; }
+  .about-strip .about-links a { width: 100%; min-width: 0; flex: 1 1 100%; grid-template-columns: auto minmax(0, 1fr) auto; }
+  .about-strip .about-links a > span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; word-break: break-word; }
   .footer-bottom { flex-wrap: wrap; justify-content: space-between; row-gap: 12px; padding-top: 11px; }
   .footer-bottom > span { max-width: 70%; line-height: 1.5; }
 
