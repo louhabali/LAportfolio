@@ -34,3 +34,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Contact form delivery
+
+The contact form sends messages to `louhabali@gmail.com` through Resend. To enable delivery, create a Resend API key and add `RESEND_API_KEY` to your local `.env.local` and your hosting provider's environment variables. The included `.env.example` shows the variable name. With the default sender, Resend may limit delivery to the account's verified recipient; verify a domain in Resend and set `CONTACT_FROM_EMAIL` to use a production sender address. Replies go directly to the sender's email address.

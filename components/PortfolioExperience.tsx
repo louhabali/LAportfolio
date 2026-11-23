@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Command } from "lucide-react";
 import { GithubMark } from "@/components/GithubMark";
+import { LinkedinMark } from "@/components/LinkedinMark";
 import { Navbar } from "@/components/Navbar";
 import { HeroBillboard } from "@/components/HeroBillboard";
 import { ProjectRow } from "@/components/ProjectRow";
@@ -39,7 +40,7 @@ export function PortfolioExperience() {
           <div className="portrait-stage"><div className="portrait-frame"><Image src="/ali-louhab.png" alt="Portrait of Ali Louhab" width={220} height={270} sizes="(max-width: 640px) 124px, 220px" /><span className="portrait-light" /><span className="portrait-index">AL / 01</span></div><span className="portrait-caption">THE PERSON BEHIND THE PROJECTS</span></div>
           <div className="about-copy"><div className="eyebrow">A PERSONAL CUT · SOFTWARE DEVELOPER</div><h2 id="about-title">Ali Louhab<span className="about-title-period">.</span></h2><div className="about-role">FULL-STACK · BACKEND · SYSTEMS</div><p>Curious by nature, I build digital products from the interface down to the infrastructure. I enjoy untangling complex problems, learning in public, and making software that feels thoughtful to use.</p>
             <div className="about-reel"><span>ORIGIN</span><i /> <span>GUERCIF, MOROCCO</span><i /> <span>NOW</span><i /> <span>OUJDA</span></div>
-            <div className="about-links"><a href="mailto:louhabali@gmail.com">Contact Ali <span>louhabali@gmail.com</span><ArrowUpRight size={14} /></a><a href="https://github.com/louhabali" target="_blank" rel="noreferrer"><GithubMark size={15} /> GitHub <span>VIEW THE WORK</span><ArrowUpRight size={14} /></a></div>
+            <div className="about-links"><a href="mailto:louhabali@gmail.com">Contact Ali <span>louhabali@gmail.com</span><ArrowUpRight size={14} /></a><a href="https://github.com/louhabali" target="_blank" rel="noreferrer"><GithubMark size={15} /> GitHub <span>VIEW THE WORK</span><ArrowUpRight size={14} /></a><a href="https://www.linkedin.com/in/louhab-ali-980987290/" target="_blank" rel="noreferrer"><LinkedinMark size={15} /> LinkedIn <span>CONNECT</span><ArrowUpRight size={14} /></a></div>
           </div>
         </section>
         <CareerSection />

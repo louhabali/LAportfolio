@@ -6,16 +6,18 @@ import type { Project } from "@/data/projects";
 import { GithubMark } from "@/components/GithubMark";
 
 export function ProjectModal({ project, onClose }: { project: Project | null; onClose: () => void }) {
+  if (!project) return null;
+  return <ProjectModalContent key={project.slug} project={project} onClose={onClose} />;
+}
+
+function ProjectModalContent({ project, onClose }: { project: Project; onClose: () => void }) {
   const [tab, setTab] = useState<"overview" | "architecture">("overview");
   useEffect(() => {
-    if (!project) return;
-    setTab("overview");
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
     document.addEventListener("keydown", closeOnEscape);
     document.body.style.overflow = "hidden";
     return () => { document.removeEventListener("keydown", closeOnEscape); document.body.style.overflow = ""; };
-  }, [project, onClose]);
-  if (!project) return null;
+  }, [onClose]);
 
   return <div className="modal-backdrop project-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
     <section className={`project-modal project-modal-${project.theme}`} role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
