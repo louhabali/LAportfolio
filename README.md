@@ -37,3 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # Contact form delivery
 
 The contact form sends messages to `louhabali@gmail.com` through Resend. To enable delivery, create a Resend API key and add `RESEND_API_KEY` to your local `.env.local` and your hosting provider's environment variables. The included `.env.example` shows the variable name. With the default sender, Resend may limit delivery to the account's verified recipient; verify a domain in Resend and set `CONTACT_FROM_EMAIL` to use a production sender address. Replies go directly to the sender's email address.
+
+The contact endpoint checks the request origin and content type, caps the request body, ignores honeypot submissions, limits each detected IP to five attempts per hour, and times out Resend requests. The built-in rate limiter is an in-memory fallback: on serverless or multi-instance hosting it is not shared between instances and resets on restart. Configure a shared rate limiter at your hosting provider or edge proxy for reliable production throttling. For stronger bot filtering, add Cloudflare Turnstile and verify its token on the server before sending.
