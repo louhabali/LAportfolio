@@ -261,6 +261,8 @@ button { color: inherit; }
 .contact-fields input, .contact-fields textarea { width: 100%; border: 1px solid #333; border-radius: 3px; outline: none; background: #101010; color: white; padding: 11px 12px; font-size: 11px; transition: border-color .18s, box-shadow .18s; }
 .contact-fields input::placeholder, .contact-fields textarea::placeholder { color: #686868; }
 .contact-fields input:focus, .contact-fields textarea:focus { border-color: #8f2a30; box-shadow: 0 0 0 2px rgb(229 9 20 / 11%); }
+.contact-fields input[aria-invalid="true"], .contact-fields textarea[aria-invalid="true"] { border-color: #d85b62; }
+.contact-field-error { color: #f07878; font-size: 9px; font-weight: 500; line-height: 1.45; }
 .contact-fields textarea { resize: vertical; min-height: 112px; line-height: 1.6; }
 .contact-fields .contact-message-field { grid-column: 1 / -1; }
 .contact-fields .contact-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
